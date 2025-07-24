@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.foss4j</groupId>
-    <artifactId>events4j</artifactId>
+    <groupId>io.github.winnpixie</groupId>
+    <artifactId>jebus</artifactId>
     <version>0.1-DEV</version>
 
     <properties>
-        <javac.version>8</javac.version>
+        <javac.version>1.8</javac.version>
         <maven.compiler.source>${javac.version}</maven.compiler.source>
         <maven.compiler.target>${javac.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

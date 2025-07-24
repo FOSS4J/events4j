@@ -1,4 +1,4 @@
-package io.github.foss4j.events4j;
+package io.github.winnpixie.jebus;
 
 public class CancellableEvent implements Event {
     private boolean cancelled;
@@ -7,7 +7,7 @@ public class CancellableEvent implements Event {
         return cancelled;
     }
 
-    public void cancel() {
-        this.cancelled = true;
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
     }
 }

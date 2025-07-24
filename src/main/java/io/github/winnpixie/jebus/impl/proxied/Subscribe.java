@@ -1,4 +1,4 @@
-package io.github.foss4j.events4j.impl;
+package io.github.winnpixie.jebus.impl.proxied;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,18 +1,17 @@
-package io.github.foss4j.events4j.impl;
+package io.github.winnpixie.jebus.impl.proxied.proxies;
 
-import io.github.foss4j.events4j.Subscriber;
+import io.github.winnpixie.jebus.Handler;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public class FieldSubscriber implements ReflectSubscriber {
+public class FieldProxy implements HandlerProxy {
     private Class<?> target;
-    private Subscriber<?> subscriber;
+    private Handler<?> handler;
 
-    public FieldSubscriber(Object parent, Field field) {
+    public FieldProxy(Object owner, Field field) {
         Type genericType = field.getGenericType();
-        System.out.println(genericType.getTypeName());
         if (!(genericType instanceof ParameterizedType)) return;
 
         ParameterizedType paramType = (ParameterizedType) genericType;
@@ -20,9 +19,9 @@ public class FieldSubscriber implements ReflectSubscriber {
         this.target = (Class<?>) actualType;
 
         try {
-            this.subscriber = (Subscriber<?>) field.get(parent);
-        } catch (IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
+            this.handler = (Handler<?>) field.get(owner);
+        } catch (IllegalArgumentException | IllegalAccessException exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -32,7 +31,7 @@ public class FieldSubscriber implements ReflectSubscriber {
     }
 
     @Override
-    public Subscriber<?> getSubscriber() {
-        return subscriber;
+    public Handler<?> getHandler() {
+        return handler;
     }
 }
